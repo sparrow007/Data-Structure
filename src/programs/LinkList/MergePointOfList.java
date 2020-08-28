@@ -1,5 +1,7 @@
 package programs.LinkList;
 
+import java.util.HashSet;
+
 public class MergePointOfList {
     static class SinglyLinkedListNode {
 
@@ -19,6 +21,8 @@ public class MergePointOfList {
         SinglyLinkedListNode tempA = head1;
         SinglyLinkedListNode tempB = head2;
 
+
+        HashSet<Integer> hashSet;
 
         while(tempA != null) {
             firstSize++;
