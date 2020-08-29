@@ -1,5 +1,7 @@
 package programs.Stack;
 
+import java.util.Stack;
+
 public class Stack_Array {
 
    static class Stack {
