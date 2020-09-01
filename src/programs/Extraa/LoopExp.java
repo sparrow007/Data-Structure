@@ -66,4 +66,28 @@ public class LoopExp {
         }
 
     }
+
+
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+
+        ArrayList<Integer> out = new ArrayList<>();
+
+        Arrays.sort(arr);
+
+
+        int prev = 0;
+        int cur = 1;
+        int i  = 0;
+        while (cur < arr.length && i < arr.length) {
+            if(arr[prev] == arr[cur]) {
+                out.add(arr[i]);
+            }else prev++;
+
+            cur++;
+            i--;
+        }
+
+        System.out.println(out);
+        return out;
+    }
 }
