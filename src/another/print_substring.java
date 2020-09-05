@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class print_substring {
 
@@ -21,6 +22,10 @@ public class print_substring {
         String ros=str.substring(1);
         prin_sub(ros,ans+"");
         prin_sub(ros,ans+ch);
+
+        Stack<Integer> st = new Stack<>();
+
+       
 
     }
 }
