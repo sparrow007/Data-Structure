@@ -6,7 +6,7 @@ public class NumberDiv {
     public static void main(String ars[]) {
 
         Scanner scanner = new Scanner(System.in);
-        int a = 9 %  10;
+        int a = 7 / 4;
         System.out.println(a);
     }
 }
