@@ -9,26 +9,22 @@ public class LuckyDivision {
 
         int num = scanner.nextInt();
 
-        System.out.println(799 % 47);
-
-        if (String.valueOf(num).contains("47")) {
-            System.out.println("YES");
-            return;
-        }
-
-        int div = num % 4 == 0 ? 2 : 3;
-        if (div % 2 == 0) {
-            System.out.println("YES");
-            return;
-        }
-
-        div =  num % 7 == 0? 2: 3;
-        if (div % 2 == 0) {
-            System.out.println("YES");
-            return;
-        }
-
+        if (isDivision(num))
+        System.out.println("YES");
+        else
         System.out.println("NO");
+
+    }
+
+    public static boolean isDivision(int num) {
+
+        if (num % 4 == 0 || num % 7 == 0 || num % 47 == 0) return true;
+
+        String number = String.valueOf(num);
+        number = number.replaceAll("7", "");
+        number = number.replaceAll("4", "");
+
+        return number.length() == 0;
 
     }
 }
