@@ -38,7 +38,7 @@ public class StackQueueAdapter {
         }
 
         int top() {
-            int size = mainQ.size();
+
             while (mainQ.size() != 1) {
                 helperQ.add(mainQ.remove() );
             }
