@@ -108,6 +108,9 @@ public class NormalQueue {
                 qu.display();
             }
             str = br.readLine();
+
+            Queue<Integer> qt;
+
         }
     }
 
