@@ -17,7 +17,7 @@ public class KefaFirstStepa {
         for (int i = 0; i < length; i++)
             arr[i] = scanner.nextInt();
 
-        
+
 
 //        int maxLength = 0;
 //
