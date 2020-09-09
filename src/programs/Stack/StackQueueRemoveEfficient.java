@@ -66,7 +66,7 @@ public class StackQueueRemoveEfficient {
         StackToQueueAdapter qu = new StackToQueueAdapter();
 
         String str = br.readLine();
-        while (str.equals("quit") == false) {
+        while (!str.equals("quit")) {
             if (str.startsWith("add")) {
                 int val = Integer.parseInt(str.split(" ")[1]);
                 qu.add(val);
