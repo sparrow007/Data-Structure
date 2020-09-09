@@ -17,8 +17,6 @@ public class IQTest {
             arr[i] = scanner.nextInt();
 
 
-        long num = IntStream.of(arr).filter(c -> c %2 == 0).count();
-
         int oddCount = 0;
         int evenCount = 0;
 
