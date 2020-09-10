@@ -1,7 +1,5 @@
 package programs.LinkList;
 
-import programs.Queue.QueueDequeue;
-
 public class DoubleEnded {
 
     private  Node head;
