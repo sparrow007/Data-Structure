@@ -10,20 +10,37 @@ public class RemoveOuterMost {
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine();
 
-        Stack<Integer> st = new Stack<>();
-        st.push(-1);
+        Stack<Character> characterStack = new Stack<>();
 
-        StringBuilder decompose = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
 
         for (int i = 0; i < s.length(); i++) {
 
-            char ch = s.charAt(i);
+            if (s.charAt(i) == '(') {
 
-            if (ch == ')') {
+                characterStack.push(s.charAt(i));
+
+                int j = i + 1;
+
+                while (characterStack.size() > 0) {
+
+                    char ch = s.charAt(j);
+
+                    if (ch == '(') characterStack.push(ch);
+                    else characterStack.pop();
+
+                    j++;
+
+                }
+
+                stringBuilder.append(s.substring(i+1, --j));
+                i = j;
+
             }
 
         }
 
-        System.out.println(decompose.toString());
+        System.out.println(stringBuilder.toString());
+
     }
 }
