@@ -30,7 +30,6 @@ public class RemoveAllAdjcent {
 
         }
 
-
         System.out.println(st);
 
         while(st.size() > 0) {
