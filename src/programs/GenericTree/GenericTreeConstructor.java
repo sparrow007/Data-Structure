@@ -38,7 +38,8 @@ public class GenericTreeConstructor {
 
         }
 
-        System.out.println(max(root));
+        //System.out.println(max(root));
+        traverse(root);
 
 
     }
@@ -106,5 +107,19 @@ public class GenericTreeConstructor {
         ht += 1;
 
         return ht;
+    }
+
+    //Traversal
+    public static void traverse(Node node) {
+        System.out.println("Node Pre " + node.data);
+
+        for (Node child : node.childrens) {
+            System.out.println("Edge Pre " + node.data + "--" + child.data);
+            traverse(child);
+            System.out.println("Edge Post " + node.data + "--" + child.data);
+        }
+
+        System.out.println("Node Post " + node.data);
+
     }
 }
