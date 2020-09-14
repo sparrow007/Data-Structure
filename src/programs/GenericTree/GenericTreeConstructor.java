@@ -165,4 +165,18 @@ public class GenericTreeConstructor {
 
     }
 
+    public static void levelOrderLinewiseZZ(Node node){
+        // write your code here
+
+        Stack<Node> st = new Stack<>();
+        Stack<Node> childStack = new Stack<>();
+        st.push(node);
+
+        while (st.size() > 0) {
+
+        }
+
+
+    }
+
 }
