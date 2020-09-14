@@ -38,7 +38,7 @@ public class GenericTreeConstructor {
 
         }
 
-        System.out.println(size(root));
+        System.out.println(max(root));
 
 
     }
@@ -76,5 +76,35 @@ public class GenericTreeConstructor {
        size += 1;
 
         return size;
+    }
+
+    //Find the max element in the generic tree
+    public static int max(Node node) {
+        int max = 0;
+
+        max = node.data;
+
+
+        for (Node child : node.childrens) {
+            int data = max(child);
+            max = Math.max(max, data);
+        }
+
+        return max;
+
+    }
+
+    public static int height(Node node) {
+        // write your code here
+        int ht = 0;
+
+        for (Node child : node.childrens) {
+            int ch = height(child);
+            ht = Math.max(ch , ht);
+        }
+
+        ht += 1;
+
+        return ht;
     }
 }
