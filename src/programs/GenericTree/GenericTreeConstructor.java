@@ -1,9 +1,6 @@
 package programs.GenericTree;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class GenericTreeConstructor {
 
@@ -41,7 +38,7 @@ public class GenericTreeConstructor {
         }
 
         //System.out.println(max(root));
-        levelOrder(root);
+        levelLineOrder(root);
 
 
     }
@@ -143,4 +140,29 @@ public class GenericTreeConstructor {
         System.out.print(".");
 
     }
+
+    //Level order line wise traversal
+    public static void levelLineOrder(Node node) {
+
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(node);
+
+        Queue<Node> childQueue = new ArrayDeque<>();
+
+        while (queue.size() > 0 || childQueue.size() > 0) {
+
+            if (queue.size() == 0) {
+                queue = childQueue;
+                childQueue = new ArrayDeque<>();
+                System.out.println();
+            }
+
+            Node temp = queue.remove();
+            System.out.print(temp.data + " ");
+           childQueue.addAll(temp.childrens);
+
+        }
+
+    }
+
 }
