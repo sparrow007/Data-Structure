@@ -38,7 +38,7 @@ public class GenericTreeConstructor {
         }
 
         //System.out.println(max(root));
-        levelLineOrder(root);
+        levelOrderLinewiseZZ(root);
 
 
     }
@@ -172,7 +172,25 @@ public class GenericTreeConstructor {
         Stack<Node> childStack = new Stack<>();
         st.push(node);
 
-        while (st.size() > 0) {
+        boolean isZigZag = true;
+
+        while (!st.isEmpty() || !childStack.isEmpty()) {
+
+            if (st.isEmpty()) {
+                st = childStack;
+                childStack = new Stack<>();
+                System.out.println();
+                isZigZag = !isZigZag;
+            }
+
+            Node temp = st.pop();
+            System.out.print(temp.data + " ");
+            if (isZigZag) {
+                childStack.addAll(temp.childrens);
+            }else {
+                for (int i = temp.childrens.size() - 1; i >= 0; i--)
+                    childStack.push(temp.childrens.get(i));
+            }
 
         }
 
