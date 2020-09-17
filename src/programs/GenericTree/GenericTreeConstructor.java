@@ -74,7 +74,6 @@ public class GenericTreeConstructor {
        }
 
        size += 1;
-
         return size;
     }
 
