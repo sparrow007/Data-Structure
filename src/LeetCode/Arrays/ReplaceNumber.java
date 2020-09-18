@@ -1,8 +1,6 @@
 package LeetCode.Arrays;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class ReplaceNumber {
 
@@ -15,9 +13,35 @@ public class ReplaceNumber {
 
         int k = scanner.nextInt();
 
-        int b = findPairs(arr, k);
+        int b = findEfficientPairs(arr, k);
 
         System.out.println(b);
+    }
+
+    public static int findEfficientPairs(int[] nums, int k) {
+
+        int res = 0;
+        if (k < 0) return res;
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int element : nums) {
+            map.put(element, map.getOrDefault(element, 0) + 1);
+        }
+
+        for (int element : map.keySet()) {
+
+            if (k == 0) {
+                if (map.get(element) >= 2) res++;
+            }else {
+                if (map.containsKey(element + k)) res++;
+            }
+
+        }
+
+
+
+        return res;
     }
 
     public static int findPairs(int[] nums, int k) {
@@ -31,7 +55,7 @@ public class ReplaceNumber {
         for (int i = 0; i < nums.length; i++) {
             for (int j = i+1; j < nums.length; j++) {
                 int diff = Math.abs(nums[i] - nums[j]);
-                
+
                 if (diff == k){
                     if (hmap.containsKey(nums[i]) && hmap.containsValue(nums[j])) {
 
