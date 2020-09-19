@@ -11,11 +11,35 @@ public class ReplaceNumber {
 
         for (int i = 0; i < length; i++) arr[i] = scanner.nextInt();
 
-        int k = scanner.nextInt();
-
-        int b = findEfficientPairs(arr, k);
+        int b = findUnsortedSubArray(arr);
 
         System.out.println(b);
+    }
+
+    public static int findUnsortedSubArray(int []nums) {
+        int unsortedArrayLength = 0;
+
+        if (nums.length < 2) return unsortedArrayLength;
+
+        int start = 0;
+        int end = nums.length-1;
+
+
+        for(int i = 0; i < nums.length-1; i++) {
+
+            if (nums[start] <= nums[start+1] && nums[start] <= nums[end]) {
+                start++;
+            } else if (nums[end] >= nums[end-1] && nums[start] <= nums[end]) {
+                end--;
+            }
+
+        }
+
+       // System.out.println("start " + start + " end " + end);
+        if(start != nums.length-1 && start <= end)
+        unsortedArrayLength = end - start + 1;
+
+        return unsortedArrayLength;
     }
 
     public static int findEfficientPairs(int[] nums, int k) {
