@@ -196,4 +196,24 @@ public class GenericTreeConstructor {
 
     }
 
+    public static void levelOder(Node node ) {
+
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(node);
+
+        while(queue.size() > 0) {
+
+            Node temp = queue.remove();
+            System.out.println(" " +temp.data);
+            queue.addAll(temp.childrens);
+        }
+
+        System.out.println(".");
+
+    }
+
+    public static void levelLineTravOrder(Node node) {
+
+    }
+
 }
