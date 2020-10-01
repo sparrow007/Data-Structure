@@ -15,7 +15,6 @@ public class PartitionArrayThreeSum {
 
         System.out.println(canPartitionInArray(a));
 
-
     }
 
     static boolean canPartitionInArray(int []a) {
@@ -63,11 +62,6 @@ public class PartitionArrayThreeSum {
         List<Integer> out = new ArrayList<>();
 
         int carry = 0;
-
-        Map<Integer, Integer> map;
-        map.
-
-
         for (int i = a.length - 1; i >= 0; i--) {
            int ans = a[i] + k % 10 + carry;
 

@@ -38,7 +38,8 @@ public class GenericTreeConstructor {
         }
 
         //System.out.println(max(root));
-        levelOrderLinewiseZZ(root);
+        mirrorTree(root);
+        levelOrderTravPair(root);
 
 
     }
@@ -214,6 +215,134 @@ public class GenericTreeConstructor {
 
     public static void levelLineTravOrder(Node node) {
 
+        Stack<Node> parentStack = new Stack<>();
+
+        Stack<Node> childStack = new Stack<>();
+
+        parentStack.push(node);
+
+        int i = 0;
+
+        while(true) {
+
+            if(parentStack.size() == 0) {
+                if(childStack.size() == 0) break;
+
+                parentStack = childStack;
+                childStack = new Stack<>();
+                System.out.println();
+                i++;
+            }
+
+            Node temp = parentStack.pop();
+            System.out.print(temp.data + " ");
+
+            if(i % 2 == 0) {
+
+                for (int j = 0; j < temp.childrens.size(); j++) {
+                    childStack.push(temp.childrens.get(j));
+                }
+
+
+            }else {
+
+                for (int j = temp.childrens.size() - 1; j >= 0; j--) {
+                    childStack.push(temp.childrens.get(j));
+                }
+
+            }
+
+
+        }
+
+    }
+
+    static void printLevelCountApproach(Node node) {
+
+        Queue<Node> queue = new ArrayDeque<>();
+
+        queue.add(node);
+
+        while(queue.size() > 0) {
+
+           int length = queue.size();
+
+           for (int i = 0; i < length; i++) {
+               Node temp = queue.remove();
+               System.out.print(temp.data + " ");
+               queue.addAll(temp.childrens);
+           }
+
+            System.out.println();
+
+        }
+
+    }
+
+    static void levelOrderTravPair(Node node ) {
+
+        Queue<Pair> queue = new ArrayDeque<>();
+
+        queue.add(new Pair(node, 1));
+
+        int level = 1;
+
+        while (queue.size() > 0) {
+
+            Pair pairNode = queue.remove();
+
+            if(pairNode.level > level) {
+                level = pairNode.level;
+                System.out.println();
+            }
+
+            System.out.print(pairNode.node.data + " ");
+            for (Node child : pairNode.node.childrens)
+            queue.add(new Pair(child, pairNode.level + 1));
+
+
+        }
+
+    }
+
+
+    static class Pair {
+        Node node;
+        int level;
+
+        Pair(Node node, int level) {
+            this.node = node;
+            this.level = level;
+        }
+
+    }
+
+    static void mirrorTree(Node node) {
+
+        Stack<Node> stack = new Stack<>();
+        Stack<Node> childStack = new Stack<>();
+        stack.push(node);
+
+        while (stack.size() > 0) {
+
+            Node tempNode = stack.pop();
+
+            for (int i = 0; i < tempNode.childrens.size(); i++)
+                childStack.push(tempNode.childrens.get(i));
+
+            tempNode.childrens.clear();
+
+            while(childStack.size() > 0) {
+                Node childNode = childStack.pop();
+                tempNode.childrens.add(childNode);
+            }
+
+            if(stack .size() == 0) {
+                stack = childStack;
+                childStack = new Stack<>();
+            }
+
+        }
     }
 
 }
