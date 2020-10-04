@@ -1,5 +1,7 @@
 package programs.BinaryTree;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BinaryTreeConstruction {
@@ -42,6 +44,68 @@ public class BinaryTreeConstruction {
 
        display(root.left);
        display(root.right);
+
+    }
+
+    /*
+    * Binary tree traversal in left order
+    * */
+
+    static void leftOrderTraversal(Node root) {
+
+        if (root == null) return;
+
+        System.out.println(root.data);
+        leftOrderTraversal(root.left);
+
+        leftOrderTraversal(root.right);
+
+    }
+
+    /*
+     * Binary tree traversal in root node order
+     * */
+
+    static void rootOrderTraversal(Node root) {
+        if (root == null) return;
+
+        rootOrderTraversal(root.left);
+        System.out.println(root.data);
+        rootOrderTraversal(root.right);
+
+    }
+
+    /*
+     * Binary tree traversal in right node order
+     * */
+
+    static void rightOrderTraversal(Node root) {
+        if (root == null) return;
+        rightOrderTraversal(root.left);
+        rightOrderTraversal(root.right);
+        System.out.println(root.data);
+    }
+
+    //Level order traversal in binary tree
+    static void levelOrderTraversal(Node root) {
+
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        while (queue.size() > 0) {
+
+            int count = queue.size();
+            for (int i = 0; i < count; i++) {
+                Node temp = queue.remove();
+                System.out.print(temp.data + " ");
+                if(temp.left != null) queue.add(temp.left);
+
+                if(temp.right != null) queue.add(temp.right);
+            }
+
+            System.out.println();
+
+        }
 
     }
 
@@ -92,7 +156,7 @@ public class BinaryTreeConstruction {
 
         }
 
-        display(root);
+        levelOrderTraversal(root);
 
     }
 
