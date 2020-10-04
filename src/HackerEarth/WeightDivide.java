@@ -23,6 +23,7 @@ public class WeightDivide {
         if(count == 0) calculate(a, k-1);
         else System.out.println(count);
 
+
     }
 
 
