@@ -1,6 +1,7 @@
 package programs.GenericTree;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Stack;
 
 public class GenericTreeStatic {
@@ -69,12 +70,18 @@ public class GenericTreeStatic {
         max = Integer.MIN_VALUE;
         height = 0;
 
-        sum(root);
-
-        System.out.println(max);
-        System.out.println(max_node);
+//        sum(root);
+//
+//        System.out.println(max);
+//        System.out.println(max_node);
 
         //System.out.println(max(root));
+
+        GenericTreeRunner gti = new GenericTreeRunner(root);
+
+        for(Integer i : gti) {
+            System.out.print(i + " ");
+        }
 
     }
 
@@ -102,6 +109,74 @@ public class GenericTreeStatic {
         size++;
 
 
+    }
+
+    static class GenericTreeRunner implements Iterable<Integer> {
+        Node root;
+
+        GenericTreeRunner(Node node) {
+            this.root = node;
+        }
+
+        @Override
+        public Iterator<Integer> iterator() {
+            GenericTreeIterator genericTreeIterator = new GenericTreeIterator(root);
+            return genericTreeIterator;
+        }
+
+        static  class GenericTreeIterator implements  Iterator<Integer> {
+
+            Integer value;
+            Stack<Pair> st;
+
+            GenericTreeIterator(Node node) {
+                st = new Stack<>();
+                st.push(new Pair(node, -1));
+                next();
+            }
+
+            @Override
+            public boolean hasNext() {
+                return value != null;
+            }
+
+            @Override
+            public Integer next() {
+                Integer cv = value;
+
+                value = null;
+                while (st.size() > 0 ) {
+
+                    Pair top = st.peek();
+
+                    if(top.state == -1) {
+                        value = top.node.data;
+                        top.state++;
+                        break;
+                    }else if(top.state == top.node.childrens.size() ) {
+                        st.pop();
+                    }else {
+                        Pair ch =  new Pair(top.node.childrens.get(top.state), -1);
+                        st.push(ch);
+                        top.state++;
+                    }
+
+                }
+
+
+                return cv;
+            }
+        }
+
+        private static class Pair {
+            Node node;
+            int state;
+
+            Pair(Node node, int state) {
+                this.node = node;
+                this.state = state;
+            }
+        }
     }
 
 }
