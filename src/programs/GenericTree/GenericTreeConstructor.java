@@ -3,7 +3,6 @@ package programs.GenericTree;
 import java.util.*;
 
 public class GenericTreeConstructor {
-
     //Node of the tree and it's data with it's next childrens
    static class Node {
 
@@ -14,6 +13,7 @@ public class GenericTreeConstructor {
             this.data = data;
             childrens = new ArrayList<>();
         }
+
     }
 
     public static void main(String[] args) {

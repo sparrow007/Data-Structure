@@ -21,7 +21,6 @@ public class MergePointOfList {
         SinglyLinkedListNode tempA = head1;
         SinglyLinkedListNode tempB = head2;
 
-
         HashSet<Integer> hashSet;
 
         while(tempA != null) {

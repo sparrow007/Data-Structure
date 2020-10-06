@@ -1,6 +1,7 @@
 package programs.BinaryTree;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -109,6 +110,89 @@ public class BinaryTreeConstruction {
 
     }
 
+    static void iterativeTraversal(Node root) {
+
+        Stack<Pair> st = new Stack<>();
+        Pair p = new Pair(root, 1);
+        st.push(p);
+
+        String pre = "";
+        String inr = "";
+        String post = "";
+
+        while (st.size() > 0) {
+
+            Pair top = st.peek();
+
+            if(top.state == 1) {
+                pre += " " + top.node.data;
+
+                if(top.node.left != null) {
+                    Pair leftPair = new Pair(top.node.left, 1);
+                    st.push(leftPair);
+                }
+
+                top.state++;
+            }else if(top.state == 2) {
+
+                inr += " " + top.node.data;
+
+                if(top.node.right != null) {
+                    Pair leftPair = new Pair(top.node.right, 1);
+                    st.push(leftPair);
+                }
+
+                top.state++;
+
+            }else {
+
+                Pair postPair = st.pop();
+                post += " " + postPair.node.data;
+
+            }
+
+        }
+
+        System.out.println(pre);
+        System.out.println(inr);
+        System.out.println(post);
+
+    }
+
+    static ArrayList<Node> pathList = new ArrayList<>();
+    public static boolean find(Node node, int data){
+        // write your code
+        if(node == null) return  false;
+        if(node.data == data) {
+            pathList.add(node);
+            return true;
+        }
+        boolean isFound;
+        isFound = find(node.left, data);
+        if (isFound) {
+            pathList.add(node);
+            return isFound;
+        }
+
+        isFound = find(node.right, data);
+        if (isFound) {
+            pathList.add(node);
+            return isFound;
+        }
+
+        return isFound;
+    }
+
+    static void printKLevelsDown(Node node, int k) {
+        if(node == null) return;
+        if(k == 0) {
+            System.out.println(node.data);
+            return;
+        }
+        printKLevelsDown(node.left, k-1);
+        printKLevelsDown(node.right, k-1);
+    }
+
     public static void main(String[] args) {
 
         Integer[] arr = {50,25, 12, null, null, 37, 30, null, null,null,75,62,null,70
@@ -156,7 +240,7 @@ public class BinaryTreeConstruction {
 
         }
 
-        levelOrderTraversal(root);
+        printKLevelsDown(root, 3);
 
     }
 
