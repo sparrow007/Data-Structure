@@ -1,5 +1,7 @@
 package programs.LinkList;
 
+import java.util.Stack;
+
 public class LinkListAllOperation {
 
     Node head; // head of list
@@ -14,6 +16,46 @@ public class LinkListAllOperation {
             data = d;
             next = null;
         }
+    }
+
+/*
+* Space complextiy  1
+*
+* Time complexity  n
+*
+* */
+
+
+    static boolean isPalindrom(Node head ) {
+        //Stack
+        Stack<Node> st = new Stack<>();
+
+        Node temp = head;
+
+        //Push the data into the stack
+        while(temp != null) {
+            st.push(temp);
+            temp = temp.next;
+        }
+
+       //Check the value of head and top of the stack
+       //If both the values are not eqal then return false;
+       //if same then return true
+
+        temp = head;
+
+        while(temp != null && st.size() > 0) {
+
+            Node stackTop = st.pop();
+
+            if(temp.data != stackTop.data) {
+                return false;
+            }
+
+           temp = temp.next;
+        }
+
+        return true;
     }
 
    void deleteNodeByKey(int position) {
@@ -94,17 +136,18 @@ public class LinkListAllOperation {
     {
         LinkListAllOperation llist = new LinkListAllOperation();
 
-        llist.push(7);
+        llist.push(2);
+        llist.push(3);
         llist.push(1);
         llist.push(3);
         llist.push(2);
 
-        System.out.println("\nCreated Linked list is:");
+        System.out.println("Created Linked list is:");
         llist.printList();
 
-        llist.deleteNodeByKey(1); // Delete node with data 1
+        System.out.println("\nIs list a palindrom " + isPalindrom(llist.head));
 
-        System.out.println("\nLinked List after Deletion of 1:");
-        llist.printList();
+//        System.out.println("\nLinked List after Deletion of 1:");
+//        llist.printList();
     }
 }
