@@ -1,5 +1,6 @@
 package programs.BinaryTree;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 
@@ -52,5 +53,8 @@ public class InorderIterative {
         tree.root.left.left = new Node(4);
         tree.root.left.right = new Node(5);
         tree.traversal();
+
+        ArrayList<Integer> at = new ArrayList<>();
+        at.addAll()
     }
 }
