@@ -54,7 +54,5 @@ public class InorderIterative {
         tree.root.left.right = new Node(5);
         tree.traversal();
 
-        ArrayList<Integer> at = new ArrayList<>();
-        at.addAll()
     }
 }
