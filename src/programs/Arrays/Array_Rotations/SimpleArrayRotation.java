@@ -83,7 +83,9 @@ public class SimpleArrayRotation {
     }
 
 
-    /*Function to left rotate arr[] of size n by d*/
+    /*Function to left rotate arr[] of size n by d
+    * Juggling algorithm
+    * */
     static int[] leftRotate(int arr[], int d, int n)
     {
         /* To handle if d >= n */
