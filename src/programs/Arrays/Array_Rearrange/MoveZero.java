@@ -12,9 +12,26 @@ public class MoveZero {
 
         for (int i = 0; i < n; i++) arr[i] = scanner.nextInt();
 
-        moveZero(arr, n);
+        moveZeroSinglePass(arr, n);
 
+//       arr =  moveZeroWithArray(arr, n);
+//
         for(int element : arr) System.out.print(element + " ");
+    }
+
+    static int[] moveZeroWithArray(int[]arr, int n) {
+        int ans[] = new int[n];
+
+        for (int i = 0, j = 0; i < n; i++) {
+            if(arr[i] != 0) {
+                ans[j] = arr[i];
+                j++;
+            }
+        }
+
+       // for (int element : ans) System.out.print(element + " ");
+
+        return ans;
     }
 
     static void moveZero(int arr[], int n) {
@@ -53,6 +70,20 @@ public class MoveZero {
         while (count < n) {
             arr[count++] = 0;
         }
+
+    }
+
+    static void moveZeroSinglePass(int arr[], int n) {
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if(arr[i] != 0) {
+                int temp = arr[count];
+                arr[count] = arr[i];
+                arr[i] = temp;
+                count++;
+            }
+        }
+
 
     }
 }
