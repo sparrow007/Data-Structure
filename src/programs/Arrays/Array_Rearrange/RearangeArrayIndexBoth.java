@@ -19,14 +19,36 @@ public class RearangeArrayIndexBoth {
             index[i] = scanner.nextInt();
         }
 
-        int temp;
-        for (int i = 0, j = 0; i < n/ 2; i++) {
-             temp = arr[i];
-             arr[i] = arr[index[i]];
-             arr[index[i]] = temp;
-
-        }
+        reorderArray(arr, index, n);
 
         for (int element : arr) System.out.print(element + " ");
+
+        System.out.println();
+
+        for (int element : index) System.out.print(element + " ");
+    }
+
+    static void reorderArray(int[] arr, int[] index, int n) {
+
+        for (int i = 0; i < n; i++) {
+            while (index[i] != i) {
+
+                //Store the target values
+                int oldTargetI = index[index[i]];
+                int oldTargetV = arr[index[i]];
+
+                //Place current value of a[i] at provided index array
+                //or at the right position
+                arr[index[i]] = arr[i];
+                index[index[i]] = index[i];
+
+                //Now placec the target values in current position in both array
+
+                arr[i] = oldTargetV;
+                index[i] = oldTargetI;
+
+            }
+        }
+
     }
 }
