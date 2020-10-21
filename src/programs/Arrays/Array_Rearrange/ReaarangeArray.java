@@ -12,10 +12,12 @@ public class ReaarangeArray {
 
         for (int i = 0; i < n; i++) arr[i] = scanner.nextInt();
 
-       int[] temp =  reArrange(arr, n);
+        reArrangeValues(arr, n);
 
-        for (int element : temp)
-        System.out.print(element + " ");
+//       int[] temp =  reArrange(arr, n);
+//
+//        for (int element : temp)
+//        System.out.print(element + " ");
 
     }
 
@@ -27,9 +29,46 @@ public class ReaarangeArray {
        return temp;
     }
 
+    static void reArrangeUtils(int[] arr, int start) {
+        int val = -(start + 1);
+        int i = arr[start];
+
+        while(arr[start] > 0) {
+
+            int new_i = arr[i];
+
+            arr[i] = val;
+
+            val = -(i + 1);
+            i = new_i;
+
+        }
+
+    }
+
     static void reArrangeArray(int[] arr, int n) {
 
+        for (int i = 0; i < n; i++) {
+            reArrangeUtils(arr, i);
+        }
 
+         for (int element : arr)
+        System.out.print(-(element + 1) + " ");
+
+    }
+
+    static void reArrangeValues(int[] arr, int n) {
+
+        for (int i = 0; i < n; i++) {
+            arr[arr[i] % n] += i*n;
+        }
+
+        for (int i = 0; i < n; i++) {
+            arr[i] /= n;
+        }
+
+        for (int element : arr)
+            System.out.print(element + " ");
 
     }
 }
