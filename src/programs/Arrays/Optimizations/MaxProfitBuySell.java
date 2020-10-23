@@ -27,7 +27,7 @@ public class MaxProfitBuySell {
             profit[i] = Math.max(profit[i + 1], max_price - price[i]);
 
         }
-        
+
         int min_price = price[0];
         for (int i = 1; i < n; i++) {
 
