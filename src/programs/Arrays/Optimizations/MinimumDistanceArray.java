@@ -7,25 +7,48 @@ public class MinimumDistanceArray {
         int x = 3;
         int y = 2;
 
+        optMinDistancec(arr, arr.length, x, y);
+
     }
 
     static void minDistance(int[] arr, int n ,int x, int y) {
         int minDis = Integer.MAX_VALUE;
 
-        int count = 0;
-
-        int start = 0;
-        int end = 0;
         for (int i = 0; i < n; i++) {
-            if(arr[i] == x) {
-                start = i;
-            }
 
-            if(arr[i] == y && arr[start] == x) {
-                end = i;
-                minDis = Math.min(minDis, (end - start) );
+            for (int j = i + 1; j < n; j++) {
+
+                if((arr[i] == x && arr[j] == y) || (arr[i] == y && arr[j] == x) &&
+                minDis > (j-i) ) {
+                    minDis = (j - i);
+                }
+
             }
         }
+
+        System.out.println(minDis);
+    }
+
+    //Optimize way
+    static void optMinDistancec(int[] arr, int n , int x, int y) {
+
+        int p = -1;
+        int minDis = Integer.MAX_VALUE;
+
+        for (int i = 0; i < n; i++) {
+
+            if(arr[i] == x || arr[i] == y) {
+                if(p != -1 && arr[i] != arr[p]) {
+                    minDis = Math.min(minDis, i-p);
+                }
+
+                p = i;
+            }
+
+        }
+
+        System.out.println(minDis);
+
     }
 
 }
