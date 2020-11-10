@@ -1,7 +1,7 @@
 fun main() {
-    val day = Day.TUESDAY.ordinal
+    val day = Day.TUESDAY
 
-    val protocol = ProtocolHopes.WAITING.signal()
+    println(day is Day)
 
     print(day)
 }
@@ -16,14 +16,3 @@ enum class Day {
     SATURDAY
 }
 
-enum class ProtocolHopes {
-
-    WAITING {
-        override fun signal() {
-            println("Yes call the signal annonymous class")
-        }
-
-    };
-
-    abstract fun signal()
-}
