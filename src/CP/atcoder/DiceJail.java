@@ -21,8 +21,9 @@ public class DiceJail {
             if (a == b) number++;
             else number = 0;
 
-            if(value.equalsIgnoreCase("yes") || number == 3) {
+            if(number == 3) {
                 value = "Yes";
+                break;
             }else {
                 value = "No";
             }
