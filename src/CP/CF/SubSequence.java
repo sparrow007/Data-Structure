@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class SubSequence {
 
-    static List<String> al = new ArrayList<>();
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -22,7 +20,6 @@ public class SubSequence {
             scanner.nextLine();
 
             String input = scanner.nextLine();
-            findsubsequences(input, "");
             while(q-->0) {
 
                 int l = scanner.nextInt() - 1;
@@ -32,22 +29,16 @@ public class SubSequence {
 
                char[] inputChar = input.toCharArray();
 
-               for (int i = 0; i < required.length(); i++) {
-                   char ch = required.charAt(i);
-                   int j = 0;
-                   boolean isFound = false;
-                   for (; j < inputChar.length; j++) {
+               boolean isFound = false;
 
-                       if (ch == inputChar[j]) {
-                           isFound = true;
-                       }
-                   }
+               for (int i = 0; i < l; i++)
+                   if (inputChar[i] == inputChar[l]) isFound = true;
 
-                   if (!isFound) {
-                       System.out.println("NO");
-                       break;
-                   }
-               }
+               for (int i = r + 1; i < inputChar.length; i++)
+                   if (inputChar[i] == inputChar[r]) isFound = true;
+
+                if(isFound) System.out.println("YES");
+                else System.out.println("NO");
 
             }
 
@@ -55,23 +46,5 @@ public class SubSequence {
 
     }
 
-
-    private static void findsubsequences(String s,
-                                         String ans)
-    {
-        if (s.length() == 0) {
-            al.add(ans);
-            return;
-        }
-
-        // We add adding 1st character in string
-        findsubsequences(s.substring(1), ans +
-                s.charAt(0));
-
-        // Not adding first character of the string
-        // because the concept of subsequence either
-        // character will present or not
-        findsubsequences(s.substring(1), ans);
-    }
 
 }
