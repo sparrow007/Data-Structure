@@ -12,17 +12,19 @@ public class PrimeFactor {
         while (test-->0) {
             long a = scanner.nextLong();
             long divisor = 2;
-            for (long i = 2; i <= Math.ceil(Math.sqrt(a)); i++) {
-                if (divisor > 3) break;
+            for (long i = (long) Math.ceil(Math.sqrt(a)); i >= 2 ; i--) {
                 if (a % i == 0) {
 
                     if (a/i == i)
                         divisor++;
-                    else
+                    else {
                         divisor += 2;
+                        break;
+                    }
 
                 }
             }
+
             if (divisor == 3) System.out.println("YES");
             else System.out.println("NO");
         }
