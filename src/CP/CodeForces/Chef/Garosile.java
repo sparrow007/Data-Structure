@@ -1,6 +1,7 @@
 package CP.CodeForces.Chef;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Garosile {
@@ -24,58 +25,35 @@ public class Garosile {
 
             for (int i = 0; i < n; i++) cost[i] = scanner.nextLong();
 
-            if (n == 1) {
-                System.out.println(0);
-                continue;
-            }
-
+            Pair[] pairs = new Pair[n];
 
             for (int i = 0; i < n; i++) {
-
-                long totalCost = 0;
-                long petrol = 0;
-                long totalPetrol= 0;
-
-                for (int j = i; j < n + i; j++, petrol--) {
-
-                    petrol += grosile[j % n];
-
-                    totalCost += cost[j%n]*grosile[j % n];
-                    totalPetrol += petrol;
-
-                    if (petrol >= n || totalPetrol >= n) break;
-
-                    if (petrol == 0) {
-                        totalCost = 0;
-                        break;
-                    }
-
-
-                }
-
-                totalCosts[i] = totalCost;
-
+                Pair pair = new Pair(grosile[i], cost[i]);
+                pairs[i] = pair;
             }
 
-            for (long data : totalCosts) System.out.println(data + " ");
-
-
-            Arrays.sort(totalCosts);
-
-            long tp = 0;
-
-            for (int i = 0; i < n; i++) {
-                if (totalCosts[i] != 0) {
-                    tp = totalCosts[i];
-                    break;
+            Arrays.sort(pairs, new Comparator<Pair>() {
+                @Override
+                public int compare(Pair o1, Pair o2) {
+                    return (int) (o1.cost - o2.cost);
                 }
+            });
 
-            }
+            
 
-         System.out.println(tp);
 
         }
 
+    }
+
+    static class Pair {
+
+         long gas, cost;
+
+        Pair (long gas, long cost) {
+            this.gas = gas;
+            this.cost = cost;
+        }
     }
 
 }
