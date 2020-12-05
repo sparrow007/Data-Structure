@@ -75,5 +75,5 @@ public class MaximumRepatingSubString {
         return count;
 
     }
-    
+
 }
