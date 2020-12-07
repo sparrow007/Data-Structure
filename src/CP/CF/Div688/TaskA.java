@@ -36,7 +36,7 @@ public class TaskA {
             }
 
             System.out.println(total);
-
+            
 
         }
     }

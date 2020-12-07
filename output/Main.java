@@ -5,10 +5,10 @@ import java.io.PrintStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.BufferedWriter;
-import java.io.Writer;
-import java.io.OutputStreamWriter;
 import java.util.InputMismatchException;
 import java.io.IOException;
+import java.io.Writer;
+import java.io.OutputStreamWriter;
 import java.io.InputStream;
 
 /**
@@ -34,34 +34,16 @@ public class Main {
 
             while (test-- > 0) {
 
-                int n = in.nextInt();
-                int m = in.nextInt();
+                int length = in.nextInt();
 
-                int arr[] = new int[101];
+                String input = in.nextString();
 
-                for (int i = 0; i < n; i++) {
-                    int value = in.nextInt();
-
-                    arr[value]++;
+                if (input.contains("trygub")) {
+                    StringBuilder stringBuilder = new StringBuilder(input);
+                    System.out.println(stringBuilder.reverse());
+                } else {
+                    System.out.println(input);
                 }
-
-                for (int i = 0; i < m; i++) {
-                    int value = in.nextInt();
-
-                    arr[value]++;
-                }
-
-                int total = 0;
-
-                for (int i = 0; i <= 100; i++) {
-
-                    if (arr[i] > 1) {
-                        total++;
-                    }
-                }
-
-                System.out.println(total);
-
 
             }
         }
@@ -117,6 +99,21 @@ public class Main {
                 c = read();
             } while (!isSpaceChar(c));
             return res * sgn;
+        }
+
+        public String nextString() {
+            int c = read();
+            while (isSpaceChar(c)) {
+                c = read();
+            }
+            StringBuilder res = new StringBuilder();
+            do {
+                if (Character.isValidCodePoint(c)) {
+                    res.appendCodePoint(c);
+                }
+                c = read();
+            } while (!isSpaceChar(c));
+            return res.toString();
         }
 
         public boolean isSpaceChar(int c) {
