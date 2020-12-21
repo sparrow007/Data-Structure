@@ -3,6 +3,8 @@ package CP.CF.Div;
 import FastIO.InputReader;
 import FastIO.OutputWriter;
 
+import java.util.UUID;
+
 public class TaskA {
     public void solve(int testNumber, InputReader in, OutputWriter out) {
         int test = in.nextInt();
