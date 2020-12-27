@@ -1,0 +1,36 @@
+ArCore is a type of software developement kit developed by google that allows augmented reality concept based apps to be built
+. Arcore forms an important part of AR based applications as it provides a varitey of tools for using and understanding
+a wide variety of oobjects in the real world around us. Various tools included in this are enviornmental understanding
+, which enables the devices to understand and detect the ertical and horizontal planes, motion tracking as well as
+complex object detection, also here motion tracking lets phones understand their respective positions and relatively track 
+them to the real world
+A particular concept of light estimation API lets our digital objects to appear realistically- it seems that they're 
+really a part of and belonging to real world. Also with ARcore elements we can use a set of common AR UI components which is earlier 
+validate with help of user testing.
+Also ARcore sue 3 key concepts of technologies to give integrated virtual content with the real world of comera.
+
+Six degrees of freedom allows the phone to understand and track the position relative to the world.
+
+Enviornment understanding which makes our phone to detect the location and the size of vertical or flat surface like floor,
+wall or as dinning table.
+
+Light estimation allows the phone to estimate the real worlds contract and lighting conditions.
+
+
+*******************ADDING STEPS TO CALCULATE THE DISTANCE*******************
+Distance calculation is the process where user can put two objects anywhere in real world and then will get the distance
+between those objects, this could helpfull for getting the length of different things like you can measure the length
+of your table, door etc. 
+
+1.Define the sceneform fragment and listen for plane detection
+
+2.After plan surface detected user can put two objects as AR Object on surface
+
+3.Get the coordinates of two objects and calculate the distance between those coordinates and show on text.
+
+
+*****************EMAIL ID**********************
+Name :- Ankit kumar Email:- ankit.loma@gmail.com
+Name :- Atul yadav  Email:- atuly1389@gmail.com
+Name :- Ashutosh kumar Email:- urr.ashu@gmail.com
+Name :- Amit kumar Email:- kmr.amit5594@gmail.com
