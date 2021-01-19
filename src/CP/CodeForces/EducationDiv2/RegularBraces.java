@@ -14,9 +14,6 @@ public class RegularBraces {
 
         while (test--> 0) {
             String s = scanner.nextLine();
-
-
-            TreeM
         }
     }
 }

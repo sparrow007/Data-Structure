@@ -1,52 +1,21 @@
 package CP.codeChef;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.TreeMap;
 
 public class SedSequence{
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int arr[] = new int[0];
+        System.out.println(arr.length);
 
-        SedSequence sedSequence = new SedSequence();
-        System.out.println("hash code of sedseu " + sedSequence.hashCode());
+        ArrayList<String> out = new ArrayList<>();
 
-        SedSequence sedSequence1 = new SedSequence();
+        String st = "";
+        Long k = 9646324351L;
 
-        System.out.println("hash code of sedseu1 " + sedSequence1.hashCode());
+        System.out.println(k.intValue());
 
-
-        /**
-         * Cop
-         */
-
-        /**
-         * Hashmap = 16
-         * (key, value)
-         * key object -> hascode -> algo -> index
-         * key object -> 1
-         * get(key)
-         * object -> hascode -> algo->index
-         * key
-         * key object -> hascode -> algo -> index = 1, ineed value
-         * get(key) ->> hashcode -> algo -> index = 1
-         *
-         * [0]-->[]
-         * [1]-->[hashcode| key| value|----> [hashcode|key|value|null]
-         * [2]
-         * [3]
-         * [4]
-         * [5]
-         *
-         *
-         * too large -> search or getting complicated
-         * loadfactor = 0.75;
-         * 100MB * 0.75 = 75MB
-         *
-         * 175MB
-         *
-         * initilcapcity = 16 =, loadfactor = 0.75
-         *
-         */
     }
 }
