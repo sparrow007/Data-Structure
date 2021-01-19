@@ -1,5 +1,6 @@
 package kotlinLearning.inheritance
 
+import kotlinLearning.extensions.swap
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper
 
 
@@ -31,11 +32,13 @@ var firstName : String  //backing field generated
     set(value) {firstName = value}
 
 fun main() {
-    var v :String ?= "hello"
-    v = null
+    val list = mutableListOf(1, 2, 3)
 
+    println(list)
 
-    print(v)
+    list.swap(0,1)
+
+    print(list)
 }
 
 open class Shape {
