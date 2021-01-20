@@ -6,7 +6,7 @@ fun MutableList<Int>.swap(index: Int, index2: Int) {
     this[index2] = temp
 }
 
-fun <T> MutableList<T>.swap2(index : Int, index2 : Int) {
+fun <T> MutableList<T>.swap2(index: Int, index2: Int) {
     val temp = this[index]
     this[index] = this[index2]
     this[index2] = temp
