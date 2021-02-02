@@ -17,7 +17,6 @@ public class CoinChangeComb {
         }
 
         int tar = scanner.nextInt();
-        int count = 0;
 
         int dp[] = new int[tar + 1];
         dp[0] = 1;
