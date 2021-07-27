@@ -11,7 +11,6 @@ public class LuckyNumber {
         boolean b1 = false;
         boolean b2 = fix(b1);
 
-
         System.out.println(b1 + "" + b2);
     }
 
