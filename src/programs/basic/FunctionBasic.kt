@@ -2,7 +2,12 @@ package programs.basic
 
 fun main() {
     //call the function
-    println(add("ankit ", "kumar"))
+    val ages = arrayOf(1,2,4,6)
+    showVararg("Ankit", *ages.toIntArray())
+}
+
+fun showVararg(name: String, vararg age: Int) {
+    println(age)
 }
 
 fun add (a: Int, b: Int) = a + b
