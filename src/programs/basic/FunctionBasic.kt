@@ -2,11 +2,26 @@ package programs.basic
 
 fun main() {
     //call the function
-    1 shl 5
+    val items = listOf(1, 2, 3, 4, 5)
+
+    val data = items.fold(1, Int::minus)
+    print(data)
 }
 
+fun <T, R> Collection<T>.fold(
+        initial: R,
+        combine: (acc: R, nextElement: T) -> R
+): R {
+    var accumulator: R = initial
+    for (element: T in this) {
+        accumulator = combine(accumulator, element)
+    }
+    return accumulator
+}
+
+
 //infix notation
-infix fun Int.shl(a: Int) {
+infix fun Int.ank(a: Int) {
     println("I am getting call from the infix")
 }
 
