@@ -2,8 +2,12 @@ package programs.basic
 
 fun main() {
     //call the function
-    val ages = arrayOf(1,2,4,6)
-    showVararg("Ankit", *ages.toIntArray())
+    1 shl 5
+}
+
+//infix notation
+infix fun Int.shl(a: Int) {
+    println("I am getting call from the infix")
 }
 
 fun showVararg(name: String, vararg age: Int) {
