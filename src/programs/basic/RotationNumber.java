@@ -12,7 +12,6 @@ public class RotationNumber {
         int length = (int) (Math.log10(n) + 1);
         HashMap<Integer, Integer> map = new HashMap<>();
         ArrayList<Integer> list = new ArrayList<>();
-        list.remove()
 
         k = k % length;
 
