@@ -24,29 +24,17 @@ public class FoPattern {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int arr[] = new int[n];
-
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             arr[i] = scanner.nextInt();
+        int prev = arr[0];
+        for (int i = 1; i <= n; i++) {
+            int currentIndex = i % n;
+            int temp = arr[currentIndex];
+            arr[currentIndex] = prev;
+            prev = temp;
         }
 
-        int n2 = scanner.nextInt();
-        int arr2[] = new int[n2];
-
-        for (int i = 0; i < n2; i++) {
-            arr2[i] = scanner.nextInt();
-        }
-
-        for(int i = 0; i < n; i++) {
-
-            for (int j = 0; j < n - i; j++) {
-                System.out.print("  ");
-            }
-
-            for (int j = 0; j <= i; j++) {
-                System.out.print("*  ");
-            }
-            System.out.println();
-        }
-
+        for (int i = 0; i < n; i++)
+        System.out.print(arr[i] + " ");
     }
 }
