@@ -17,7 +17,6 @@ public class Diagonal {
             }
         }
 
-
         for (int i = 0; i < col; i++) {
             int diagonal = i;
             for (int j = 0; j < row && diagonal < col; j++, diagonal++) {
