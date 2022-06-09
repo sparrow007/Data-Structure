@@ -1,4 +1,3 @@
-import Extensions.swap
 
 fun main(args : Array<String>) {
    val d = InterImpl()
@@ -11,5 +10,7 @@ fun main(args : Array<String>) {
    //Both can be create properties
 
    val list = mutableListOf<Int>(2, 4, 8, 9)
+   val name = "Ankit"
+   print(name.toUppercase())
    
 }
