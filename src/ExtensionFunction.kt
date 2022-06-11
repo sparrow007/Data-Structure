@@ -10,5 +10,6 @@ import java.lang.IllegalStateException
     if (length < 2) {
         throw IllegalStateException("Length is less than two character!! ")
     }
+
     return "get(1)"
 }
