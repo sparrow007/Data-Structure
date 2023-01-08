@@ -13,3 +13,15 @@ import java.lang.IllegalStateException
 
     return "get(1)"
 }
+val symbolPattern by lazy {
+    Regex("""(#\w+)""")
+}
+fun main() {
+
+val name = "This is a good day #loveTheMorning #KillingIt"
+    val match = symbolPattern.findAll(name);
+    for (token in match) {
+        println(token.value)
+    }
+
+}
