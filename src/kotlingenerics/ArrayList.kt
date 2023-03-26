@@ -3,7 +3,7 @@ package kotlingenerics
 
 
 //This is how we can create an inteface with generics class and interface and use it as in the body of it's interface
-interface List<T> {
+interface Listing<T> {
     fun playCool(value: T)
 }
 
