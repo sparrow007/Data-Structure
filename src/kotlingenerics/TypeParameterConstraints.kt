@@ -5,6 +5,7 @@ fun main() {
     val readers = listOf("ankit", "suman", "Dmitry")
     val process = Process<String>()
     process.process(9.0f)
+    val names = listOf<String>("Ankit", "Sam")
 }
 
 fun <T> List<T>.filter(predicate: (T) -> Boolean ): List<T> {
